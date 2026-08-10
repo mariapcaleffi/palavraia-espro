@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palavraíá</title>
+
+    <link rel="stylesheet" href="style-home.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet">
+
+</head>
+
+<body>
+<main class="app">
+
+        <header class="topbar home-topbar">
+
+    <div class="brand">
+        Palav<span>raíá</span><small>✦</small>
+    </div>
+
+    <button
+        class="seletor-idioma"
+        onclick="abrirSelecaoIdioma()"
+    >
+
+        <img
+            id="bandeira"
+            src="https://flagcdn.com/w80/br.png"
+            alt="Brasil"
+        >
+
+        <span class="material-symbols-rounded">
+            arrow_drop_down
+        </span>
+
+    </button>
+
+</header>
+
+
+<!-- CARD DE SELEÇÃO DE IDIOMA -->
+
+<div
+    class="overlay-idioma"
+    id="overlayIdioma"
+    onclick="fecharSelecaoIdioma(event)"
+>
+
+    <div
+        class="card-idiomas"
+        onclick="event.stopPropagation()"
+    >
+
+        <div class="titulo-idiomas">
+
+            <strong>
+                Escolha seu país
+            </strong>
+
+            <button onclick="fecharSelecaoIdioma()">
+
+                <span class="material-symbols-rounded">
+                    close
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div class="lista-idiomas">
+
+
+            <!-- BRASIL -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('br', 'Português')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/br.png"
+                    alt="Brasil"
+                >
+
+                <div>
+                    <strong>Brasil</strong>
+                    <small>Português</small>
+                </div>
+
+            </button>
+
+
+            <!-- VENEZUELA -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('ve', 'Español')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/ve.png"
+                    alt="Venezuela"
+                >
+
+                <div>
+                    <strong>Venezuela</strong>
+                    <small>Español</small>
+                </div>
+
+            </button>
+
+
+            <!-- HAITI -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('ht', 'Kreyòl')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/ht.png"
+                    alt="Haiti"
+                >
+
+                <div>
+                    <strong>Haiti</strong>
+                    <small>Kreyòl</small>
+                </div>
+
+            </button>
+
+
+            <!-- COLÔMBIA -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('co', 'Español')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/co.png"
+                    alt="Colômbia"
+                >
+
+                <div>
+                    <strong>Colômbia</strong>
+                    <small>Español</small>
+                </div>
+
+            </button>
+
+
+            <!-- BOLÍVIA -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('bo', 'Español')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/bo.png"
+                    alt="Bolívia"
+                >
+
+                <div>
+                    <strong>Bolívia</strong>
+                    <small>Español</small>
+                </div>
+
+            </button>
+
+
+            <!-- PERU -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('pe', 'Español')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/pe.png"
+                    alt="Peru"
+                >
+
+                <div>
+                    <strong>Peru</strong>
+                    <small>Español</small>
+                </div>
+
+            </button>
+
+
+            <!-- SÍRIA -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('sy', 'Árabe')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/sy.png"
+                    alt="Síria"
+                >
+
+                <div>
+                    <strong>Síria</strong>
+                    <small>العربية</small>
+                </div>
+
+            </button>
+
+
+            <!-- UCRÂNIA -->
+
+            <button
+                class="opcao-idioma"
+                onclick="trocarIdioma('ua', 'Ucraniano')"
+            >
+
+                <img
+                    src="https://flagcdn.com/w80/ua.png"
+                    alt="Ucrânia"
+                >
+
+                <div>
+                    <strong>Ucrânia</strong>
+                    <small>Українська</small>
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <section class="home-content">
+
+            <h2>
+                Olá,
+                <span id="nomeUsuario">
+                    Ana Silva
+                </span>!
+            </h2>
+
+
+            <div class="cards">
+
+
+                <!-- FOTOGRAFAR -->
+
+                <button
+                    class="card card-fotografar"
+                    onclick="abrirPagina('fotografar')"
+                >
+
+                    <span class="material-symbols-rounded card-icon">
+                        photo_camera
+                    </span>
+
+                    <strong>
+                        fotografar
+                    </strong>
+
+                </button>
+
+
+                <!-- ATIVIDADES -->
+
+                <button
+                    class="card card-atividades"
+                    onclick="abrirPagina('atividades')"
+                >
+
+                    <span class="material-symbols-rounded card-icon">
+                        edit_note
+                    </span>
+
+                    <strong>
+                        atividades
+                    </strong>
+
+                </button>
+
+
+                <!-- FALAR -->
+
+                <button
+                    class="card card-falar"
+                    onclick="abrirPagina('falar')"
+                >
+
+                    <span class="material-symbols-rounded card-icon">
+                        volume_up
+                    </span>
+
+                    <strong>
+                        falar
+                    </strong>
+
+                </button>
+
+
+                <!-- BIBLIOTECA -->
+
+                <button
+                    class="card card-biblioteca"
+                    onclick="abrirPagina('biblioteca')"
+                >
+
+                    <span class="material-symbols-rounded card-icon">
+                        person
+                    </span>
+
+                    <strong>
+                        biblioteca
+                    </strong>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const nome =
+            localStorage.getItem("nome");
+
+
+        const bandeira =
+            localStorage.getItem("bandeira");
+
+
+        if (nome) {
+
+            document.getElementById(
+                "nomeUsuario"
+            ).textContent = nome;
+
+        }
+
+
+        if (bandeira) {
+
+            document.getElementById(
+                "bandeira"
+            ).textContent = bandeira;
+
+        }
+
+
+        function abrirPagina(pagina) {
+
+            /*
+                Por enquanto os cards levam
+                para páginas temporárias.
+
+                Depois podemos criar:
+                fotografar.html
+                atividades.html
+                falar.html
+                biblioteca.html
+            */
+
+            alert(
+                "Você clicou em: " + pagina
+            );
+
+        }
+
+        function abrirSelecaoIdioma() {
+
+    document
+        .getElementById("overlayIdioma")
+        .classList.add("aberto");
+
+}
+
+
+function fecharSelecaoIdioma(event) {
+
+    // Se clicou no fundo
+    // fecha o card
+
+    if (
+        !event ||
+        event.target === event.currentTarget
+    ) {
+
+        document
+            .getElementById("overlayIdioma")
+            .classList.remove("aberto");
+
+    }
+
+}
+
+
+function trocarIdioma(bandeira, idioma) {
+
+    // Salva a nova escolha
+
+    localStorage.setItem(
+        "bandeira",
+        bandeira
+    );
+
+    localStorage.setItem(
+        "idioma",
+        idioma
+    );
+
+
+    // Troca a bandeira imediatamente
+
+    document
+        .getElementById("bandeira")
+        .src =
+        `https://flagcdn.com/w80/${bandeira}.png`;
+
+
+    // Fecha o card
+
+    document
+        .getElementById("overlayIdioma")
+        .classList.remove("aberto");
+
+}
+
+    </script>
+
+</body>
+
+</html>

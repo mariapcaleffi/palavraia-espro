@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seu nome</title>
+
+    <link rel="stylesheet" href="style-home.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="topbar">
+
+            <div class="brand">
+                Palav<span>raíá</span><small>✦</small>
+            </div>
+
+            <button class="sound-button" onclick="falar()">
+
+                <span class="material-symbols-rounded">
+                    volume_up
+                </span>
+
+            </button>
+
+        </header>
+
+
+        <section class="nome-content">
+
+            <h1>Olá!</h1>
+
+            <label for="nome">
+                Nome:
+            </label>
+
+
+            <div class="nome-input">
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Exemplo: Ana Silva"
+                    autocomplete="name"
+                >
+
+
+                <button
+                    class="microfone"
+                    onclick="ouvirNome()"
+                >
+
+                    <span class="material-symbols-rounded">
+                        mic
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="confirmar"
+                id="botaoContinuar"
+                onclick="continuar()"
+            >
+
+                <span class="material-symbols-rounded">
+                    check
+                </span>
+
+            </button>
+
+
+            <p class="ajuda">
+                Você pode escrever ou falar seu nome.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const input =
+            document.getElementById("nome");
+
+        const botao =
+            document.getElementById("botaoContinuar");
+
+
+        input.addEventListener("input", function () {
+
+            if (input.value.trim().length >= 2) {
+
+                botao.classList.add("ativo");
+
+            } else {
+
+                botao.classList.remove("ativo");
+
+            }
+
+        });
+
+
+        function continuar() {
+
+            const nome =
+                input.value.trim();
+
+
+            if (nome.length < 2) {
+
+                alert("Digite seu nome.");
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                "nome",
+                nome
+            );
+
+
+            window.location.href =
+                "home.html";
+
+        }
+
+
+        function falar() {
+
+            const voz =
+                new SpeechSynthesisUtterance(
+                    "Olá! Qual é o seu nome?"
+                );
+
+            voz.lang = "pt-BR";
+
+            voz.rate = 0.85;
+
+            speechSynthesis.speak(voz);
+
+        }
+
+
+        function ouvirNome() {
+
+            const Recognition =
+                window.SpeechRecognition ||
+                window.webkitSpeechRecognition;
+
+
+            if (!Recognition) {
+
+                alert(
+                    "Seu navegador não suporta reconhecimento de voz. Digite seu nome."
+                );
+
+                return;
+
+            }
+
+
+            const reconhecimento =
+                new Recognition();
+
+
+            reconhecimento.lang =
+                "pt-BR";
+
+
+            reconhecimento.interimResults =
+                false;
+
+
+            reconhecimento.start();
+
+
+            reconhecimento.onresult =
+                function (evento) {
+
+                    const resultado =
+                        evento.results[0][0].transcript;
+
+
+                    input.value =
+                        resultado;
+
+
+                    botao.classList.add("ativo");
+
+                };
+
+        }
+
+    </script>
+
+</body>
+
+</html>

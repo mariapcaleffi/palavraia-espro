@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>De onde você é?</title>
+
+    <link rel="stylesheet" href="style-home.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <main class="app">
+
+
+        <header class="topbar">
+
+            <div class="brand">
+                Palav<span>raíá</span><small>✦</small>
+            </div>
+
+            <button class="sound-button" onclick="falar()">
+
+                <span class="material-symbols-rounded">
+                    volume_up
+                </span>
+
+            </button>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <section class="config-content">
+
+            <h1>Olá!</h1>
+
+            <p class="subtitle">
+                Escolha seu país
+            </p>
+
+
+            <div class="idiomas">
+
+
+                <!-- BRASIL -->
+
+                <button
+                    class="idioma selecionado"
+                    onclick="selecionar(this, 'Português', '🇧🇷')"
+                >
+
+                    <span class="bandeira">🇧🇷</span>
+
+                    <strong>Brasil</strong>
+
+                    <small>Português</small>
+
+                </button>
+
+
+                <!-- VENEZUELA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Español', '🇻🇪')"
+                >
+
+                    <span class="bandeira">🇻🇪</span>
+
+                    <strong>Venezuela</strong>
+
+                    <small>Español</small>
+
+                </button>
+
+
+                <!-- HAITI -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Kreyòl', '🇭🇹')"
+                >
+
+                    <span class="bandeira">🇭🇹</span>
+
+                    <strong>Haiti</strong>
+
+                    <small>Kreyòl</small>
+
+                </button>
+
+
+                <!-- COLÔMBIA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Español', '🇨🇴')"
+                >
+
+                    <span class="bandeira">🇨🇴</span>
+
+                    <strong>Colômbia</strong>
+
+                    <small>Español</small>
+
+                </button>
+
+
+                <!-- BOLÍVIA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Español', '🇧🇴')"
+                >
+
+                    <span class="bandeira">🇧🇴</span>
+
+                    <strong>Bolívia</strong>
+
+                    <small>Español</small>
+
+                </button>
+
+
+                <!-- CUBA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Español', '🇨🇺')"
+                >
+
+                    <span class="bandeira">🇨🇺</span>
+
+                    <strong>Cuba</strong>
+
+                    <small>Español</small>
+
+                </button>
+
+
+                <!-- PERU -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Español', '🇵🇪')"
+                >
+
+                    <span class="bandeira">🇵🇪</span>
+
+                    <strong>Peru</strong>
+
+                    <small>Español</small>
+
+                </button>
+
+
+                <!-- SÍRIA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Árabe', '🇸🇾')"
+                >
+
+                    <span class="bandeira">🇸🇾</span>
+
+                    <strong>Síria</strong>
+
+                    <small>العربية</small>
+
+                </button>
+
+
+                <!-- AFEGANISTÃO -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Dari', '🇦🇫')"
+                >
+
+                    <span class="bandeira">🇦🇫</span>
+
+                    <strong>Afeganistão</strong>
+
+                    <small>Dari</small>
+
+                </button>
+
+
+                <!-- UCRÂNIA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Ucraniano', '🇺🇦')"
+                >
+
+                    <span class="bandeira">🇺🇦</span>
+
+                    <strong>Ucrânia</strong>
+
+                    <small>Українська</small>
+
+                </button>
+
+
+                <!-- ANGOLA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Português', '🇦🇴')"
+                >
+
+                    <span class="bandeira">🇦🇴</span>
+
+                    <strong>Angola</strong>
+
+                    <small>Português</small>
+
+                </button>
+
+
+                <!-- CONGO -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Francês', '🇨🇩')"
+                >
+
+                    <span class="bandeira">🇨🇩</span>
+
+                    <strong>Congo</strong>
+
+                    <small>Français</small>
+
+                </button>
+
+
+                <!-- SENEGAL -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Francês', '🇸🇳')"
+                >
+
+                    <span class="bandeira">🇸🇳</span>
+
+                    <strong>Senegal</strong>
+
+                    <small>Français</small>
+
+                </button>
+
+
+                <!-- CHINA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Mandarim', '🇨🇳')"
+                >
+
+                    <span class="bandeira">🇨🇳</span>
+
+                    <strong>China</strong>
+
+                    <small>中文</small>
+
+                </button>
+
+
+                <!-- RÚSSIA -->
+
+                <button
+                    class="idioma"
+                    onclick="selecionar(this, 'Russo', '🇷🇺')"
+                >
+
+                    <span class="bandeira">🇷🇺</span>
+
+                    <strong>Rússia</strong>
+
+                    <small>Русский</small>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- BOTÃO CONTINUAR -->
+
+            <button
+                class="confirmar"
+                onclick="continuar()"
+            >
+
+                <span class="material-symbols-rounded">
+                    check
+                </span>
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        let idiomaSelecionado = "Português";
+
+        let bandeiraSelecionada = "🇧🇷";
+
+
+        function selecionar(
+            botao,
+            idioma,
+            bandeira
+        ) {
+
+            document
+                .querySelectorAll(".idioma")
+                .forEach(item => {
+
+                    item.classList.remove(
+                        "selecionado"
+                    );
+
+                });
+
+
+            botao.classList.add(
+                "selecionado"
+            );
+
+
+            idiomaSelecionado = idioma;
+
+            bandeiraSelecionada = bandeira;
+
+
+            localStorage.setItem(
+                "idioma",
+                idiomaSelecionado
+            );
+
+
+            localStorage.setItem(
+                "bandeira",
+                bandeiraSelecionada
+            );
+
+        }
+
+
+        function continuar() {
+
+            window.location.href =
+                "config2.html";
+
+        }
+
+
+        function falar() {
+
+            const texto =
+                "Olá! De onde você é? Escolha seu país.";
+
+            const voz =
+                new SpeechSynthesisUtterance(
+                    texto
+                );
+
+            voz.lang = "pt-BR";
+
+            voz.rate = 0.85;
+
+            speechSynthesis.speak(voz);
+
+        }
+
+    </script>
+
+</body>
+
+</html>

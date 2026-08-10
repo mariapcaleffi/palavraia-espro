@@ -1,0 +1,1076 @@
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    --roxo: #50409a;
+
+    --roxo-escuro: #45358b;
+
+    --creme: #fff9f5;
+
+    --azul: #a9d8ff;
+
+    --azul-texto: #80b3e4;
+
+    --verde: #16a77d;
+
+    --rosa: #ff3d70;
+
+    --amarelo: #ffb51c;
+
+    --texto: #40378b;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+body {
+
+    font-family: "Nunito", sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(80,64,154,.16) 1.2px,
+            transparent 1.2px
+        );
+
+    background-size: 15px 15px;
+
+    background-color: #f7fbff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 100vh;
+
+}
+
+
+button,
+input {
+
+    font-family: inherit;
+
+}
+
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+/* ========================================
+   CONTAINER DO CELULAR
+======================================== */
+
+.app {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    min-height: 100vh;
+
+    background: var(--creme);
+
+    overflow: hidden;
+
+}
+
+
+/* ========================================
+   TELA INICIAL
+======================================== */
+
+.start-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    cursor: pointer;
+
+}
+
+
+.logo {
+
+    text-align: center;
+
+    color: var(--azul-texto);
+
+}
+
+
+.logo-main {
+
+    font-size: 3rem;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+}
+
+
+.logo-main span {
+
+    color: var(--roxo);
+
+}
+
+
+.estrela {
+
+    color: var(--azul-texto);
+
+    font-size: 1.5rem;
+
+}
+
+
+.logo p {
+
+    color: var(--roxo);
+
+    font-size: .75rem;
+
+    font-weight: 900;
+
+    font-style: italic;
+
+    margin-top: 8px;
+
+}
+
+
+.toque {
+
+    margin-top: 70px;
+
+    color: var(--roxo);
+
+    opacity: .45;
+
+    font-size: .8rem;
+
+    font-weight: 800;
+
+}
+
+
+/* ========================================
+   BARRA SUPERIOR
+======================================== */
+
+.topbar {
+    height: 80px;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--roxo);
+}
+
+
+.brand {
+
+    color: white;
+
+    font-size: 1.55rem;
+
+    font-weight: 900;
+
+}
+
+
+.brand span {
+
+    color: #a9d0ff;
+
+}
+
+
+.brand small {
+
+    color: #a9d0ff;
+
+}
+
+
+.sound-button {
+
+    background: transparent;
+
+    color: white;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.sound-button span {
+
+    font-size: 32px;
+
+}
+
+
+/* ========================================
+   CONFIGURAÇÃO DO IDIOMA
+======================================== */
+
+.config-content {
+    min-height: calc(100vh - 80px);
+
+    height: calc(100vh - 80px);
+
+    padding: 25px 25px 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+.config-content h1 {
+
+    color: var(--azul-texto);
+
+    font-size: 4.5rem;
+
+    line-height: 1;
+
+    text-align: center;
+
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: var(--texto);
+
+    font-size: 1.15rem;
+
+    font-weight: 800;
+
+    margin: 8px 0 25px;
+
+}
+
+
+.idiomas {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.idioma {
+
+    min-height: 105px;
+
+    background: white;
+
+    border: 3px solid transparent;
+
+    border-radius: 22px;
+
+    box-shadow: 0 3px 10px rgba(50,40,100,.1);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    color: var(--texto);
+
+    font-weight: 800;
+
+    font-size: .95rem;
+
+}
+
+
+.idioma.selecionado {
+
+    border-color: var(--roxo);
+
+    background: #f2efff;
+
+}
+
+
+.bandeira {
+
+    font-size: 2.7rem;
+
+    line-height: 1;
+
+}
+
+
+.confirmar {
+
+    width: 72px;
+
+    height: 50px;
+
+    margin: auto auto 0;
+
+    border-radius: 30px;
+
+    background: var(--verde);
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.confirmar span {
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+}
+
+
+/* ========================================
+   CONFIGURAÇÃO DO NOME
+======================================== */
+
+.nome-content {
+
+    min-height: calc(100vh - 80px);
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.nome-content h1 {
+
+    color: var(--azul-texto);
+
+    font-size: 4.5rem;
+
+    line-height: 1;
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+.nome-content label {
+
+    color: var(--roxo);
+
+    font-size: 2rem;
+
+    font-weight: 900;
+
+    margin-bottom: 8px;
+
+}
+
+
+.nome-input {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.nome-input input {
+
+    flex: 1;
+
+    height: 58px;
+
+    min-width: 0;
+
+    border: 2px solid var(--roxo);
+
+    border-radius: 10px;
+
+    background: #f1f1f1;
+
+    padding: 0 14px;
+
+    font-size: 1rem;
+
+    font-style: italic;
+
+    outline: none;
+
+}
+
+
+.nome-input input:focus {
+
+    background: white;
+
+    border-width: 3px;
+
+}
+
+
+.microfone {
+
+    width: 58px;
+
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: var(--rosa);
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.microfone span {
+
+    font-size: 34px;
+
+}
+
+
+.nome-content .confirmar {
+
+    opacity: .45;
+
+}
+
+
+.nome-content .confirmar.ativo {
+
+    opacity: 1;
+
+}
+
+
+.ajuda {
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    font-size: .8rem;
+
+    font-weight: 700;
+
+    opacity: .55;
+
+}
+
+
+/* ========================================
+   HOME
+======================================== */
+
+.home-topbar {
+
+    height: 80px;
+
+}
+
+
+.seletor-idioma {
+
+    min-width: 65px;
+
+    height: 42px;
+
+    border-radius: 9px;
+
+    background: var(--azul);
+
+    color: var(--texto);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 2px;
+
+}
+
+
+.seletor-idioma span:first-child {
+
+    font-size: 1.7rem;
+
+}
+
+
+.home-content {
+
+    padding: 12px 18px 30px;
+
+}
+
+
+.home-content h2 {
+
+    color: var(--texto);
+
+    font-size: 1.55rem;
+
+    margin-bottom: 20px;
+
+}
+
+
+.home-content h2 span {
+
+    font-weight: 900;
+
+}
+
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.card {
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px;
+
+    transition: .15s;
+
+}
+
+
+.card:active {
+
+    transform: scale(.95);
+
+}
+
+
+.card-icon {
+
+    font-size: 75px;
+
+}
+
+
+.card strong {
+
+    font-size: 1rem;
+
+    font-style: italic;
+
+}
+
+
+.card-fotografar {
+
+    background: #a9d8ff;
+
+    color: #16446e;
+
+}
+
+
+.card-atividades {
+
+    background: #ff3d70;
+
+    color: #94103f;
+
+}
+
+
+.card-falar {
+
+    background: #3dc49e;
+
+    color: #16745e;
+
+}
+
+
+.card-biblioteca {
+
+    background: #ffb51c;
+
+    color: #a96c00;
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (min-width: 600px) {
+
+    body {
+
+        padding: 25px;
+
+    }
+
+
+    .app {
+
+        min-height: 850px;
+
+        height: 92vh;
+
+        border-radius: 30px;
+
+        box-shadow:
+            0 15px 50px rgba(50,40,100,.15);
+
+    }
+
+
+    .start-screen {
+
+        min-height: 100%;
+
+    }
+
+}
+
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 350px) {
+
+    .config-content {
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+
+    }
+
+
+    .idioma {
+
+        min-height: 90px;
+
+        border-radius: 17px;
+
+    }
+
+
+    .bandeira {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .home-content {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+    }
+
+
+    .card-icon {
+
+        font-size: 58px;
+
+    }
+
+}
+
+/* ========================================
+   SELEÇÃO DE IDIOMA NA HOME
+======================================== */
+
+
+.overlay-idioma {
+
+    position: absolute;
+
+    top: 80px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: calc(100% - 80px);
+
+    background: rgba(40, 30, 90, .25);
+
+    backdrop-filter: blur(3px);
+
+    display: none;
+
+    justify-content: flex-end;
+
+    align-items: flex-start;
+
+    padding: 12px 18px;
+
+    z-index: 100;
+
+}
+
+
+.overlay-idioma.aberto {
+
+    display: flex;
+
+}
+
+
+.card-idiomas {
+
+    width: 280px;
+
+    max-width: 90%;
+
+    max-height: 75vh;
+
+    background: var(--creme);
+
+    border-radius: 20px;
+
+    padding: 15px;
+
+    box-shadow:
+        0 10px 35px rgba(40, 30, 100, .25);
+
+    animation: abrirIdioma .2s ease;
+
+}
+
+
+@keyframes abrirIdioma {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-10px) scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+/* TÍTULO */
+
+.titulo-idiomas {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: var(--texto);
+
+}
+
+
+.titulo-idiomas strong {
+
+    font-size: 1rem;
+
+}
+
+
+.titulo-idiomas button {
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #eeeafc;
+
+    color: var(--texto);
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.titulo-idiomas button span {
+
+    font-size: 20px;
+
+}
+
+
+/* LISTA */
+
+.lista-idiomas {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    max-height: 58vh;
+
+    overflow-y: auto;
+
+}
+
+
+/* CADA PAÍS */
+
+.opcao-idioma {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    border-radius: 13px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 7px 10px;
+
+    text-align: left;
+
+    color: var(--texto);
+
+    transition: .15s;
+
+}
+
+
+.opcao-idioma:hover {
+
+    background: #f1eeff;
+
+}
+
+
+.opcao-idioma:active {
+
+    transform: scale(.97);
+
+}
+
+
+/* BANDEIRA */
+
+.opcao-idioma img {
+
+    width: 48px;
+
+    height: 32px;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* TEXTO */
+
+.opcao-idioma div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+
+}
+
+
+.opcao-idioma strong {
+
+    font-size: .9rem;
+
+}
+
+
+.opcao-idioma small {
+
+    font-size: .72rem;
+
+    opacity: .6;
+
+}
+
+
+/* ========================================
+   BOTÃO DA BANDEIRA NA HOME
+======================================== */
+
+.seletor-idioma {
+
+    min-width: 68px;
+
+    height: 42px;
+
+    padding: 4px 7px;
+
+    border-radius: 9px;
+
+    background: var(--azul);
+
+    color: var(--texto);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    transition: .15s;
+
+}
+
+
+.seletor-idioma:active {
+
+    transform: scale(.94);
+
+}
+
+
+.seletor-idioma img {
+
+    width: 38px;
+
+    height: 25px;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+}
+
+
+.seletor-idioma .material-symbols-rounded {
+
+    font-size: 25px;
+
+}
