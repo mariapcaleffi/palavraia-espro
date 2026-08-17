@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Falar - Palavraíá</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="pagina falar-page">
+
+    <header class="barra barra-green">
+
+        <button
+            class="botao-voltar"
+            onclick="voltarHome()"
+        >
+
+            <span class="material-symbols-rounded">
+                arrow_back
+            </span>
+
+        </button>
+
+
+        <h1>Falar</h1>
+
+
+        <button
+            class="botao-som"
+            onclick="falarTexto(fraseAtual)"
+        >
+
+            <span class="material-symbols-rounded">
+                volume_up
+            </span>
+
+        </button>
+
+    </header>
+
+
+    <main class="conteudo">
+
+
+        <section class="fala-intro">
+
+            <span class="material-symbols-rounded">
+                record_voice_over
+            </span>
+
+            <h2>
+                Vamos conversar!
+            </h2>
+
+            <p>
+                Ouça e tente repetir.
+            </p>
+
+        </section>
+
+
+        <!-- FRASE 1 -->
+
+        <article class="frase-card">
+
+            <div class="frase-balao">
+
+                <strong>
+                    Olá, meu nome é Maria.
+                </strong>
+
+            </div>
+
+
+            <div class="controles-fala">
+
+                <button
+                    class="ouvir"
+                    onclick="falarTexto('Olá, meu nome é Maria.')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                    Ouvir
+
+                </button>
+
+
+                <button
+                    class="microfone"
+                    onclick="ouvirPessoa(this, 'Olá, meu nome é Maria.')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        mic
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="feedback" id="feedback1">
+
+                Toque no microfone e tente falar.
+
+            </div>
+
+        </article>
+
+
+        <!-- FRASE 2 -->
+
+        <article class="frase-card">
+
+            <div class="frase-balao">
+
+                <strong>
+                    Eu vim de outro país.
+                </strong>
+
+            </div>
+
+
+            <div class="controles-fala">
+
+                <button
+                    class="ouvir"
+                    onclick="falarTexto('Eu vim de outro país.')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                    Ouvir
+
+                </button>
+
+
+                <button
+                    class="microfone"
+                    onclick="ouvirPessoa(this, 'Eu vim de outro país.')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        mic
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="feedback" id="feedback2">
+
+                Tente falar a frase.
+
+            </div>
+
+        </article>
+
+
+        <div
+            class="resultado-fala"
+            id="resultadoFala"
+        >
+
+            <span class="material-symbols-rounded">
+                graphic_eq
+            </span>
+
+            <p>
+                Sua fala aparecerá aqui.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+    <script>
+
+        let fraseAtual =
+            "Olá, meu nome é Maria.";
+
+
+        function voltarHome() {
+
+            window.location.href =
+                "home.html";
+
+        }
+
+
+        function falarTexto(texto) {
+
+            fraseAtual = texto;
+
+            speechSynthesis.cancel();
+
+            const voz =
+                new SpeechSynthesisUtterance(texto);
+
+            voz.lang = "pt-BR";
+
+            voz.rate = 0.78;
+
+            speechSynthesis.speak(voz);
+
+        }
+
+
+        function ouvirPessoa(botao, frase) {
+
+            fraseAtual = frase;
+
+
+            const SpeechRecognition =
+                window.SpeechRecognition ||
+                window.webkitSpeechRecognition;
+
+
+            if (!SpeechRecognition) {
+
+                alert(
+                    "Seu navegador não possui reconhecimento de voz. Você pode usar o botão de áudio para ouvir a frase."
+                );
+
+                return;
+
+            }
+
+
+            const reconhecimento =
+                new SpeechRecognition();
+
+
+            reconhecimento.lang =
+                "pt-BR";
+
+            reconhecimento.interimResults =
+                false;
+
+            reconhecimento.continuous =
+                false;
+
+
+            botao.classList.add(
+                "gravando"
+            );
+
+
+            document
+                .getElementById("resultadoFala")
+                .classList.add("ativo");
+
+
+            reconhecimento.start();
+
+
+            reconhecimento.onresult =
+                function(event) {
+
+                    const resultado =
+                        event.results[0][0]
+                        .transcript;
+
+
+                    document
+                        .getElementById(
+                            "resultadoFala"
+                        )
+                        .querySelector("p")
+                        .textContent =
+                        "Você disse: " +
+                        resultado;
+
+
+                    const numero =
+                        frase.includes("Maria")
+                        ? "1"
+                        : "2";
+
+
+                    document
+                        .getElementById(
+                            "feedback" + numero
+                        )
+                        .textContent =
+                        "Muito bem! Continue praticando.";
+
+                };
+
+
+            reconhecimento.onerror =
+                function() {
+
+                    document
+                        .getElementById(
+                            "resultadoFala"
+                        )
+                        .querySelector("p")
+                        .textContent =
+                        "Não conseguimos ouvir. Tente novamente.";
+
+                };
+
+
+            reconhecimento.onend =
+                function() {
+
+                    botao.classList.remove(
+                        "gravando"
+                    );
+
+                    document
+                        .getElementById(
+                            "resultadoFala"
+                        )
+                        .classList.remove(
+                            "ativo"
+                        );
+
+                };
+
+        }
+
+    </script>
+
+</body>
+
+</html>
