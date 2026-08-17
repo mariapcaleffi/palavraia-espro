@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Biblioteca - Palavraíá</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="pagina biblioteca-page">
+
+    <header class="barra barra-yellow">
+
+        <button
+            class="botao-voltar"
+            onclick="voltarHome()"
+        >
+
+            <span class="material-symbols-rounded">
+                arrow_back
+            </span>
+
+        </button>
+
+
+        <h1>Biblioteca</h1>
+
+
+        <button
+            class="botao-som"
+            onclick="falarTexto('Biblioteca')"
+        >
+
+            <span class="material-symbols-rounded">
+                volume_up
+            </span>
+
+        </button>
+
+    </header>
+
+
+    <main class="conteudo biblioteca-conteudo">
+
+
+        <section class="biblioteca-intro">
+
+            <span class="material-symbols-rounded">
+                auto_stories
+            </span>
+
+            <div>
+
+                <h2>
+                    Meu almanaque
+                </h2>
+
+                <p>
+                    Tudo o que você já aprendeu.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABAS -->
+
+        <div class="abas">
+
+            <button
+                class="aba ativa"
+                onclick="mostrarAba('frases', this)"
+            >
+                Frases
+            </button>
+
+
+            <button
+                class="aba"
+                onclick="mostrarAba('palavras', this)"
+            >
+                Palavras
+            </button>
+
+        </div>
+
+
+        <!-- FRASES -->
+
+        <section
+            class="itens-biblioteca"
+            id="frases"
+        >
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        chat
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Bom dia!
+                    </strong>
+
+                    <small>
+                        Usamos pela manhã.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Bom dia!')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        chat
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Como você está?
+                    </strong>
+
+                    <small>
+                        Uma forma de perguntar como alguém está.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Como você está?')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        chat
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Por favor.
+                    </strong>
+
+                    <small>
+                        Usamos quando pedimos alguma coisa.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Por favor.')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        chat
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Muito obrigado!
+                    </strong>
+
+                    <small>
+                        Usamos para agradecer.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Muito obrigado!')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+        </section>
+
+
+        <!-- PALAVRAS -->
+
+        <section
+            class="itens-biblioteca"
+            id="palavras"
+            style="display: none;"
+        >
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        restaurant
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Comida
+                    </strong>
+
+                    <small>
+                        Algo que comemos.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Comida')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        directions_bus
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Ônibus
+                    </strong>
+
+                    <small>
+                        Meio de transporte coletivo.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Ônibus')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        home
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Casa
+                    </strong>
+
+                    <small>
+                        Lugar onde uma pessoa mora.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Casa')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <article class="item-biblioteca">
+
+                <div class="item-icone">
+                    <span class="material-symbols-rounded">
+                        work
+                    </span>
+                </div>
+
+                <div class="item-info">
+
+                    <strong>
+                        Trabalho
+                    </strong>
+
+                    <small>
+                        Atividade que uma pessoa realiza.
+                    </small>
+
+                </div>
+
+                <button
+                    onclick="falarTexto('Trabalho')"
+                >
+
+                    <span class="material-symbols-rounded">
+                        volume_up
+                    </span>
+
+                </button>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function voltarHome() {
+
+            window.location.href =
+                "home.html";
+
+        }
+
+
+        function falarTexto(texto) {
+
+            speechSynthesis.cancel();
+
+            const voz =
+                new SpeechSynthesisUtterance(texto);
+
+            voz.lang = "pt-BR";
+
+            voz.rate = 0.8;
+
+            speechSynthesis.speak(voz);
+
+        }
+
+
+        function mostrarAba(tipo, botao) {
+
+            document
+                .querySelectorAll(".aba")
+                .forEach(aba => {
+
+                    aba.classList.remove(
+                        "ativa"
+                    );
+
+                });
+
+
+            botao.classList.add(
+                "ativa"
+            );
+
+
+            document.getElementById(
+                "frases"
+            ).style.display =
+                tipo === "frases"
+                    ? "flex"
+                    : "none";
+
+
+            document.getElementById(
+                "palavras"
+            ).style.display =
+                tipo === "palavras"
+                    ? "flex"
+                    : "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

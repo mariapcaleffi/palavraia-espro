@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Fotografar - Palavraíá</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="pagina fotografia-page">
+
+    <!-- ======================================
+         BARRA SUPERIOR
+    ======================================= -->
+
+    <header class="barra barra-blue">
+
+        <button
+            class="botao-voltar"
+            onclick="voltarHome()"
+            aria-label="Voltar"
+        >
+
+            <span class="material-symbols-rounded">
+                arrow_back
+            </span>
+
+        </button>
+
+
+        <h1>Fotografar</h1>
+
+
+        <button
+            class="botao-som"
+            onclick="lerTexto('Fotografar. Tire uma foto para aprender o que aparece nela.')"
+            aria-label="Ouvir"
+        >
+
+            <span class="material-symbols-rounded">
+                volume_up
+            </span>
+
+        </button>
+
+    </header>
+
+
+    <!-- ======================================
+         CONTEÚDO
+    ======================================= -->
+
+    <main class="conteudo">
+
+
+        <section class="camera-intro">
+
+            <span class="material-symbols-rounded">
+                photo_camera
+            </span>
+
+            <h2>
+                Fotografe e aprenda!
+            </h2>
+
+            <p>
+                Tire uma foto de algo que você
+                encontrou e descubra o que é.
+            </p>
+
+        </section>
+
+
+        <!-- ======================================
+             BOTÃO DA CÂMERA
+        ======================================= -->
+
+        <label
+            for="cameraInput"
+            class="botao-camera"
+        >
+
+            <span class="material-symbols-rounded">
+                photo_camera
+            </span>
+
+            <strong>
+                Tirar uma foto
+            </strong>
+
+            <small>
+                Toque aqui para abrir a câmera
+            </small>
+
+        </label>
+
+
+        <input
+            id="cameraInput"
+            type="file"
+            accept="image/*"
+            capture="environment"
+            hidden
+            onchange="mostrarFoto(event)"
+        >
+
+
+        <!-- ======================================
+             FOTO DO USUÁRIO
+        ======================================= -->
+
+        <section
+            id="fotoResultado"
+            class="foto-resultado"
+        >
+
+            <img
+                id="fotoUsuario"
+                alt="Foto tirada pelo usuário"
+            >
+
+            <div class="foto-resultado-texto">
+
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+
+                <div>
+
+                    <strong>
+                        Foto registrada!
+                    </strong>
+
+                    <p>
+                        No momento, o Palavraíá precisa
+                        de uma função de reconhecimento
+                        para identificar automaticamente
+                        o que aparece na imagem.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             EXEMPLOS
+        ======================================= -->
+
+        <h3 class="titulo-secao">
+            Experimente com exemplos
+        </h3>
+
+
+        <p class="subtitulo-secao">
+            Toque em uma imagem para descobrir
+            o que ela significa.
+        </p>
+
+
+        <!-- RECEITA MÉDICA -->
+
+        <button
+            class="exemplo-foto"
+            onclick="abrirExplicacao('receita')"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=900&q=85"
+                alt="Pessoa segurando uma receita médica"
+            >
+
+            <div class="exemplo-info">
+
+                <div>
+
+                    <span class="tag-blue">
+                        DOCUMENTO
+                    </span>
+
+                    <h3>
+                        Receita médica
+                    </h3>
+
+                    <p>
+                        Aprenda o que é uma receita
+                        e para que ela serve.
+                    </p>
+
+                </div>
+
+                <span class="material-symbols-rounded">
+                    chevron_right
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- PASSAGEM / BILHETE -->
+
+        <button
+            class="exemplo-foto"
+            onclick="abrirExplicacao('passagem')"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=900&q=85"
+                alt="Pessoa viajando de ônibus"
+            >
+
+            <div class="exemplo-info">
+
+                <div>
+
+                    <span class="tag-blue">
+                        VIAGEM
+                    </span>
+
+                    <h3>
+                        Passagem
+                    </h3>
+
+                    <p>
+                        Aprenda palavras importantes
+                        para viajar.
+                    </p>
+
+                </div>
+
+                <span class="material-symbols-rounded">
+                    chevron_right
+                </span>
+
+            </div>
+
+        </button>
+
+
+    </main>
+
+
+    <!-- ======================================
+         CARD DE EXPLICAÇÃO
+    ======================================= -->
+
+    <div
+        id="overlayExplicacao"
+        class="overlay-explicacao"
+        onclick="fecharExplicacao(event)"
+    >
+
+        <div
+            class="card-explicacao"
+            onclick="event.stopPropagation()"
+        >
+
+            <button
+                class="fechar-card"
+                onclick="fecharExplicacao()"
+                aria-label="Fechar"
+            >
+
+                <span class="material-symbols-rounded">
+                    close
+                </span>
+
+            </button>
+
+
+            <div
+                id="iconeExplicacao"
+                class="icone-explicacao"
+            >
+
+                <span class="material-symbols-rounded">
+                    description
+                </span>
+
+            </div>
+
+
+            <span
+                id="categoriaExplicacao"
+                class="tag-blue"
+            >
+                DOCUMENTO
+            </span>
+
+
+            <h2 id="tituloExplicacao">
+                Receita médica
+            </h2>
+
+
+            <p
+                id="textoExplicacao"
+                class="texto-explicacao"
+            >
+                Este documento é uma receita médica.
+            </p>
+
+
+            <!-- PALAVRAS IMPORTANTES -->
+
+            <div class="palavras-importantes">
+
+                <strong>
+                    Palavras importantes
+                </strong>
+
+                <div
+                    id="palavrasLista"
+                    class="chips-palavras"
+                >
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÃO DE ÁUDIO -->
+
+            <button
+                id="botaoOuvirExplicacao"
+                class="botao-ouvir-explicacao"
+                onclick="ouvirExplicacao()"
+            >
+
+                <span class="material-symbols-rounded">
+                    volume_up
+                </span>
+
+                Ouvir explicação
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =====================================
+           NAVEGAÇÃO
+        ===================================== */
+
+        function voltarHome() {
+
+            window.location.href = "home.html";
+
+        }
+
+
+        /* =====================================
+           VOZ
+        ===================================== */
+
+        function lerTexto(texto) {
+
+            if (!("speechSynthesis" in window)) {
+
+                alert(
+                    "Seu navegador não possui suporte para áudio."
+                );
+
+                return;
+
+            }
+
+            // Para qualquer áudio anterior
+            window.speechSynthesis.cancel();
+
+
+            const fala =
+                new SpeechSynthesisUtterance(texto);
+
+
+            fala.lang = "pt-BR";
+
+            fala.rate = 0.82;
+
+            fala.pitch = 1;
+
+            fala.volume = 1;
+
+
+            /*
+             * Alguns navegadores demoram para
+             * carregar as vozes. Por isso tentamos
+             * escolher uma voz em português.
+             */
+
+            const vozes =
+                window.speechSynthesis.getVoices();
+
+
+            const vozPortugues =
+                vozes.find(voz =>
+                    voz.lang.toLowerCase().startsWith("pt-br")
+                )
+                ||
+                vozes.find(voz =>
+                    voz.lang.toLowerCase().startsWith("pt")
+                );
+
+
+            if (vozPortugues) {
+
+                fala.voice = vozPortugues;
+
+            }
+
+
+            window.speechSynthesis.speak(fala);
+
+        }
+
+
+        /*
+         * Alguns celulares só carregam as vozes
+         * depois que voiceschanged acontece.
+         */
+
+        if ("speechSynthesis" in window) {
+
+            window.speechSynthesis.onvoiceschanged =
+                function() {
+
+                    window.speechSynthesis.getVoices();
+
+                };
+
+        }
+
+
+        /* =====================================
+           CÂMERA
+        ===================================== */
+
+        function mostrarFoto(event) {
+
+            const arquivo =
+                event.target.files[0];
+
+
+            if (!arquivo) {
+
+                return;
+
+            }
+
+
+            const imagem =
+                document.getElementById(
+                    "fotoUsuario"
+                );
+
+
+            imagem.src =
+                URL.createObjectURL(arquivo);
+
+
+            document
+                .getElementById("fotoResultado")
+                .classList.add("mostrar");
+
+
+            // Rola até a foto
+            document
+                .getElementById("fotoResultado")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+        }
+
+
+        /* =====================================
+           EXPLICAÇÕES
+        ===================================== */
+
+        const explicacoes = {
+
+            receita: {
+
+                categoria:
+                    "DOCUMENTO",
+
+                titulo:
+                    "Receita médica",
+
+                icone:
+                    "prescription",
+
+                texto:
+                    "Uma receita médica é um documento escrito por um médico. Ela indica quais medicamentos uma pessoa deve usar, como deve usar e por quanto tempo.",
+
+                palavras: [
+                    "médico",
+                    "remédio",
+                    "farmácia",
+                    "receita"
+                ]
+
+            },
+
+
+            passagem: {
+
+                categoria:
+                    "VIAGEM",
+
+                titulo:
+                    "Passagem",
+
+                icone:
+                    "confirmation_number",
+
+                texto:
+                    "Uma passagem é um documento ou comprovante que permite que uma pessoa viaje. Ela pode mostrar informações como o destino, o horário e o lugar da viagem.",
+
+                palavras: [
+                    "viagem",
+                    "destino",
+                    "horário",
+                    "ônibus"
+                ]
+
+            }
+
+        };
+
+
+        let explicacaoAtual = null;
+
+
+        function abrirExplicacao(tipo) {
+
+            explicacaoAtual =
+                explicacoes[tipo];
+
+
+            document
+                .getElementById(
+                    "categoriaExplicacao"
+                )
+                .textContent =
+                explicacaoAtual.categoria;
+
+
+            document
+                .getElementById(
+                    "tituloExplicacao"
+                )
+                .textContent =
+                explicacaoAtual.titulo;
+
+
+            document
+                .getElementById(
+                    "textoExplicacao"
+                )
+                .textContent =
+                explicacaoAtual.texto;
+
+
+            document
+                .querySelector(
+                    "#iconeExplicacao span"
+                )
+                .textContent =
+                explicacaoAtual.icone;
+
+
+            const lista =
+                document.getElementById(
+                    "palavrasLista"
+                );
+
+
+            lista.innerHTML = "";
+
+
+            explicacaoAtual.palavras
+                .forEach(palavra => {
+
+                    const chip =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    chip.className =
+                        "chip-palavra";
+
+
+                    chip.textContent =
+                        palavra;
+
+
+                    chip.onclick =
+                        function() {
+
+                            lerTexto(palavra);
+
+                        };
+
+
+                    lista.appendChild(chip);
+
+                });
+
+
+            document
+                .getElementById(
+                    "overlayExplicacao"
+                )
+                .classList.add("aberto");
+
+
+            // Lê automaticamente o título
+            setTimeout(() => {
+
+                lerTexto(
+                    explicacaoAtual.titulo +
+                    ". " +
+                    explicacaoAtual.texto
+                );
+
+            }, 300);
+
+        }
+
+
+        function fecharExplicacao(event) {
+
+            if (
+                event &&
+                event.target !==
+                document.getElementById(
+                    "overlayExplicacao"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            document
+                .getElementById(
+                    "overlayExplicacao"
+                )
+                .classList.remove("aberto");
+
+
+            window.speechSynthesis.cancel();
+
+        }
+
+
+        function ouvirExplicacao() {
+
+            if (!explicacaoAtual) {
+
+                return;
+
+            }
+
+
+            lerTexto(
+                explicacaoAtual.titulo +
+                ". " +
+                explicacaoAtual.texto
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

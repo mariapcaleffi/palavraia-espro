@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atividades - Palavraíá</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="pagina atividade-page">
+
+    <header class="barra barra-pink">
+
+        <button class="botao-voltar" onclick="voltarHome()">
+
+            <span class="material-symbols-rounded">
+                arrow_back
+            </span>
+
+        </button>
+
+
+        <h1>Atividades</h1>
+
+
+        <button
+            class="botao-som"
+            onclick="falarTexto('Atividades')"
+        >
+
+            <span class="material-symbols-rounded">
+                volume_up
+            </span>
+
+        </button>
+
+    </header>
+
+
+    <main class="conteudo">
+
+        <section class="boas-vindas">
+
+            <span class="icone-grande pink-text">
+                school
+            </span>
+
+            <div>
+
+                <h2>Vamos aprender!</h2>
+
+                <p>
+                    Escolha uma atividade para praticar.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESSO -->
+
+        <section class="progresso">
+
+            <div class="progresso-topo">
+
+                <strong>
+                    Seu progresso
+                </strong>
+
+                <span>
+                    2 de 5
+                </span>
+
+            </div>
+
+            <div class="barra-progresso">
+
+                <div></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATIVIDADES -->
+
+        <section class="lista-atividades">
+
+
+            <button
+                class="atividade-card concluida"
+                onclick="falarTexto('Muito bem! Vamos praticar palavras.')"
+            >
+
+                <div class="atividade-icone">
+                    <span class="material-symbols-rounded">
+                        check
+                    </span>
+                </div>
+
+                <div class="atividade-texto">
+
+                    <strong>
+                        Palavras do dia
+                    </strong>
+
+                    <small>
+                        Aprenda palavras novas
+                    </small>
+
+                </div>
+
+                <span class="material-symbols-rounded seta">
+                    chevron_right
+                </span>
+
+            </button>
+
+
+            <button
+                class="atividade-card"
+                onclick="iniciarAtividade('frases')"
+            >
+
+                <div class="atividade-icone">
+
+                    <span class="material-symbols-rounded">
+                        chat
+                    </span>
+
+                </div>
+
+                <div class="atividade-texto">
+
+                    <strong>
+                        Complete a frase
+                    </strong>
+
+                    <small>
+                        Escolha a palavra correta
+                    </small>
+
+                </div>
+
+                <span class="material-symbols-rounded seta">
+                    chevron_right
+                </span>
+
+            </button>
+
+
+            <button
+                class="atividade-card"
+                onclick="iniciarAtividade('objetos')"
+            >
+
+                <div class="atividade-icone">
+
+                    <span class="material-symbols-rounded">
+                        image
+                    </span>
+
+                </div>
+
+                <div class="atividade-texto">
+
+                    <strong>
+                        O que é isso?
+                    </strong>
+
+                    <small>
+                        Aprenda nomes de objetos
+                    </small>
+
+                </div>
+
+                <span class="material-symbols-rounded seta">
+                    chevron_right
+                </span>
+
+            </button>
+
+
+            <button
+                class="atividade-card"
+                onclick="iniciarAtividade('fala')"
+            >
+
+                <div class="atividade-icone">
+
+                    <span class="material-symbols-rounded">
+                        record_voice_over
+                    </span>
+
+                </div>
+
+                <div class="atividade-texto">
+
+                    <strong>
+                        Vamos falar
+                    </strong>
+
+                    <small>
+                        Pratique sua pronúncia
+                    </small>
+
+                </div>
+
+                <span class="material-symbols-rounded seta">
+                    chevron_right
+                </span>
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function voltarHome() {
+
+            window.location.href = "home.html";
+
+        }
+
+
+        function falarTexto(texto) {
+
+            const voz =
+                new SpeechSynthesisUtterance(texto);
+
+            voz.lang = "pt-BR";
+
+            voz.rate = 0.85;
+
+            speechSynthesis.speak(voz);
+
+        }
+
+
+        function iniciarAtividade(tipo) {
+
+            const mensagens = {
+
+                frases:
+                    "Vamos completar uma frase!",
+
+                objetos:
+                    "Vamos aprender nomes de objetos!",
+
+                fala:
+                    "Vamos praticar a fala!"
+
+            };
+
+            falarTexto(mensagens[tipo]);
+
+            alert(mensagens[tipo]);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
